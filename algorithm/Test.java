@@ -14,5 +14,6 @@ public class Test {
 		// ≤‚ ‘≈≈–Ú:
 		BubbleSort.bubbleSort(arr); outputArr(arr);
 		SelectionSort.selectionSort(arr); outputArr(arr);
+		InsertionSort.insertionSort(arr); outputArr(arr);
 	}
 }
