@@ -1,6 +1,6 @@
 package algorithm;
 
-// ²åÈëÅÅĞò
+// æ’å…¥æ’åº
 public class InsertionSort {
 	public static void insertionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {

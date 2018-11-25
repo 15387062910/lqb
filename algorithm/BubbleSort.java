@@ -1,6 +1,6 @@
 package algorithm;
 
-// Ã°ÅİÅÅĞò
+// å†’æ³¡æ’åº
 public class BubbleSort {
 	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
