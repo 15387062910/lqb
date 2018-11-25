@@ -10,7 +10,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		int[] arr = {1, 6, 3, 8, 4, 3, 5};
-		// 测试排序:
+		// test sort:
 		BubbleSort.bubbleSort(arr); outputArr(arr);
 		SelectionSort.selectionSort(arr); outputArr(arr);
 		InsertionSort.insertionSort(arr); outputArr(arr);

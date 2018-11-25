@@ -1,6 +1,5 @@
 package algorithm;
 
-// 冒泡排序
 public class BubbleSort {
 	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
