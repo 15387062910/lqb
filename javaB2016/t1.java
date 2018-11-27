@@ -1,16 +1,16 @@
 package javaB2016;
 
 /*
-ÓÐÒ»¶ÑÃºÇò£¬¶Ñ³ÉÈý½ÇÀâ×¶ÐÎ¡£¾ßÌå£º
-	µÚÒ»²ã·Å1¸ö£¬
-	µÚ¶þ²ã3¸ö£¨ÅÅÁÐ³ÉÈý½ÇÐÎ£©£¬
-	µÚÈý²ã6¸ö£¨ÅÅÁÐ³ÉÈý½ÇÐÎ£©£¬
-	µÚËÄ²ã10¸ö£¨ÅÅÁÐ³ÉÈý½ÇÐÎ£©£¬
+æœ‰ä¸€å †ç…¤çƒï¼Œå †æˆä¸‰è§’æ£±é”¥å½¢ã€‚å…·ä½“ï¼š
+	ç¬¬ä¸€å±‚æ”¾1ä¸ªï¼Œ
+	ç¬¬äºŒå±‚3ä¸ªï¼ˆæŽ’åˆ—æˆä¸‰è§’å½¢ï¼‰ï¼Œ
+	ç¬¬ä¸‰å±‚6ä¸ªï¼ˆæŽ’åˆ—æˆä¸‰è§’å½¢ï¼‰ï¼Œ
+	ç¬¬å››å±‚10ä¸ªï¼ˆæŽ’åˆ—æˆä¸‰è§’å½¢ï¼‰ï¼Œ
 	....
-	Èç¹ûÒ»¹²ÓÐ100²ã£¬¹²ÓÐ¶àÉÙ¸öÃºÇò£¿ ²»ÊÇ5050  ÊÇ171700  Ì×Â·°¡¡¢¡¢¡¢
+	å¦‚æžœä¸€å…±æœ‰100å±‚ï¼Œå…±æœ‰å¤šå°‘ä¸ªç…¤çƒï¼Ÿ ä¸æ˜¯5050  æ˜¯171700  å¥—è·¯å•Šã€ã€ã€
  */
 public class t1 {
-	private static int f(int n){		// ËãµÚn²ãÓÐ¶àÉÙ¸ö
+	private static int f(int n){		// ç®—ç¬¬nå±‚æœ‰å¤šå°‘ä¸ª
 		int res = 0;
 		for(int i=1; i<=n; i++){
 			res += i;
@@ -28,13 +28,13 @@ public class t1 {
 	}
 	
 	public static void main(String[] args) {
-		// °´ÌâÄ¿¸øµÄÊý¾Ý²âÊÔÒ»ÏÂ:
+		// test
 		System.out.println(f(1));
 		System.out.println(f(2));
 		System.out.println(f(3));
 		System.out.println(f(4));
 		
-		// ÌâÄ¿ÒªËãµÄ:
-		System.out.println(cal(100));		// ×îºó´ð°¸ÊÇ171700
+		// result
+		System.out.println(cal(100));		// 171700
 	}
 }

@@ -1,61 +1,66 @@
 package javaB2016;
 
 /* 
-	    B          DEF
-A +    ---    +  -------  = 10
-        C          GHI
- 
-Õâ¸öËãÊ½ÖĞA~I´ú±í1~9µÄÊı×Ö£¬²»Í¬µÄ×ÖÄ¸´ú±í²»Í¬µÄÊı×Ö¡£
-±ÈÈç£º
-	6+8/3+952/714 ¾ÍÊÇÒ»ÖÖ½â·¨£¬
-	5+3/1+972/486 ÊÇÁíÒ»ÖÖ½â·¨¡£
-	Õâ¸öËãÊ½Ò»¹²ÓĞ¶àÉÙÖÖ½â·¨£¿
-	×¢Òâ£ºÄãÌá½»Ó¦¸ÃÊÇ¸öÕûÊı£¬²»ÒªÌîĞ´ÈÎºÎ¶àÓàµÄÄÚÈİ»òËµÃ÷ĞÔÎÄ×Ö¡£
-*/
-// Ë¼Â·: ¾Å²ãÑ­»· ±©Á¦ÆÆ½â ÕæµÄºÜ±©Á¦ºÜÎŞÄÔ ²»¹ıÃ»¹ØÏµ ·´Õı¸ã³öÀ´¾ÍĞĞ Ìî´ğ°¸µÄÌâ²»ÔÚºõ±©Á¦²»±©Á¦
-// µÚÒ»´ÎÍêÕûËã³öÀ´ 38706673 ¸Ğ¾õ²»¶Ô°Ñ ÔõÃ´¿ÉÄÜÕâÃ´´ó  Ò»¿´´ğ°¸ÊÇ29 ¹ûÈ»²»¶Ô 
-// ×îºó»¹ÊÇÃ»ÓĞÕÒ³öÀ´ÎÊÌâÔÚÄÄ¡¢¡¢¡¢
-// Ô­À´ÊÇÂ©ÁËÒ»¸öÌõ¼ş: A~I´ú±í1~9µÄÊı×Ö£¬²»Í¬µÄ×ÖÄ¸´ú±í²»Í¬µÄÊı×Ö ¡¢¡¢¡¢¡¢
-// ¼ÓÁËÕâ¸öÌõ¼şÖ®ºóËã³öÀ´ÊÇ35721  »¹ÊÇ²»¶Ô ¡¢¡¢¡¢
+ B          DEF
+ A  +  ----  +  --------  = 10
+ C          GHI
+
+ è¿™ä¸ªç®—å¼ä¸­A~Iä»£è¡¨1~9çš„æ•°å­—ï¼Œä¸åŒçš„å­—æ¯ä»£è¡¨ä¸åŒçš„æ•°å­—ã€‚
+ æ¯”å¦‚ï¼š
+ 6+8/3+952/714 å°±æ˜¯ä¸€ç§è§£æ³•ï¼Œ
+ 5+3/1+972/486 æ˜¯å¦ä¸€ç§è§£æ³•ã€‚
+ è¿™ä¸ªç®—å¼ä¸€å…±æœ‰å¤šå°‘ç§è§£æ³•ï¼Ÿ
+ æ³¨æ„ï¼šä½ æäº¤åº”è¯¥æ˜¯ä¸ªæ•´æ•°ï¼Œä¸è¦å¡«å†™ä»»ä½•å¤šä½™çš„å†…å®¹æˆ–è¯´æ˜æ€§æ–‡å­—ã€‚
+ */
+// ç­”æ¡ˆ: 29
+// è¯·æ³¨æ„ä¸ºäº†é¿å…æ“è›‹çš„å°æ•°é—®é¢˜ è¯·åŒ–ç®€ç­‰å¼å°†ç­‰å¼ä¸­çš„é™¤æ³•è½¬æ¢æˆä¹˜æ³•!!!
 
 public class t3 {
-	private static boolean check(int i, int j, int k, int l, int a, int b, int c, int d, int e){
-		// ³éÌëÔ­Àí
+	private static boolean check(int i, int j, int k, int l, int a, int b,
+			int c, int d, int e) {
+		// æŠ½å±‰åŸç†
 		int[] array = new int[10];
-		array[i] += 1; array[j] += 1; array[k] += 1; array[l] += 1;
-		array[a] += 1; array[b] += 1; array[c] += 1; array[d] += 1; array[e] += 1;
-		for(int t=1; t<=9; t++){
-			if(array[t]!=1){
+		array[i] += 1;
+		array[j] += 1;
+		array[k] += 1;
+		array[l] += 1;
+		array[a] += 1;
+		array[b] += 1;
+		array[c] += 1;
+		array[d] += 1;
+		array[e] += 1;
+		for (int t = 1; t <= 9; t++) {
+			if (array[t] != 1) {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public static void main(String[] args) {
-		int res = 0;	// ¼ÇÂ¼½á¹ûÊı
-		for(int i=1; i<=9; i++)
-		for(int j=1; j<=9; j++)
-		for(int k=1; k<=9; k++)
-		for(int l=1; l<=9; l++)
-		for(int a=1; a<=9; a++)
-		for(int b=1; b<=9; b++)
-		for(int c=1; c<=9; c++)
-		for(int d=1; d<=9; d++)
-		for(int e=1; e<=9; e++){
-			int A = j;
-			int B = k;
-			int C = l*100 + a*10 + b;
-			int D = c*100 + d*10 + e;
-			// System.out.println(s);
-			if(check(i, j, k, l, a, b, c, d, e)){
-				int s = i+A/B+C/D;
-				if(s==10){
-					res += 1;
-				}
-			}
-		}
+		int res = 0;
+		for (int i = 1; i <= 9; i++)
+			for (int j = 1; j <= 9; j++)
+				for (int k = 1; k <= 9; k++)
+					for (int l = 1; l <= 9; l++)
+						for (int a = 1; a <= 9; a++)
+							for (int b = 1; b <= 9; b++)
+								for (int c = 1; c <= 9; c++)
+									for (int d = 1; d <= 9; d++)
+										for (int e = 1; e <= 9; e++) {
+											int A = j;
+											int B = k;
+											int C = l * 100 + a * 10 + b;
+											int D = c * 100 + d * 10 + e;
+											// System.out.println(s);
+											if (check(i, j, k, l, a, b, c, d, e)) {
+												if (i * B * D + A * D + B * C == 10
+														* B * D) {
+													res += 1;
+												}
+											}
+										}
 		System.out.println(res);
 	}
 }
