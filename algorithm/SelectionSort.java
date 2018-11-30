@@ -104,7 +104,7 @@ public class SelectionSort {
 		}
 		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 		
-		// to generate a array and bubbleSort it
+		// to generate a array and sort it
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
 		selectionSort(arr);
