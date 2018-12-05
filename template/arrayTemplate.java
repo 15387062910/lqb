@@ -67,4 +67,18 @@ public class arrayTemplate {
 		}
 		System.out.println();
 	}
+	
+	public static void partition(int[] arr, int num) {
+		// 把数组分成三部分 左边为小于num的数   中间为等于num的数  右边为大于num的数
+		int less = -1;
+		int more = arr.length;
+		for (int i = 0; i < arr.length && i <= more; i++) {
+			if (arr[i] < num) {
+				swap(arr, i, ++less);
+			} else if (arr[i] > num) {
+				swap(arr, i, --more);
+			}
+		}
+	}
+	
 }
