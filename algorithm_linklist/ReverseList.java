@@ -86,7 +86,7 @@ public class ReverseList {
 		printLinkedList(head1);
 		printLinkedList(reverseList(head1));
 		
-		// 1 -> 2 -> 3 -> 4  |  1 <- 2 <- 3 <- 4
+		// 1 -> 2 -> 3 -> 4   |   1 <- 2 <- 3 <- 4
 		DoubleNode head2 = new DoubleNode(1);
 		head2.next = new DoubleNode(2);
 		head2.next.last = head2;
