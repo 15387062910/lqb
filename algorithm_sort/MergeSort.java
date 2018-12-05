@@ -1,25 +1,49 @@
-package algorithm;
+package algorithm_sort;
 
 import java.util.Arrays;
 
-public class BubbleSort {
-	public static void bubbleSort(int[] arr) {
+public class MergeSort {
+	public static void mergeSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int end = arr.length - 1; end >= 0; end--) {
-			for (int i = 0; i < end; i++) {
-				if (arr[i] > arr[i + 1]) {
-					swap(arr, i, i + 1);
-				}
-			}
-		}
+		sortProcess(arr, 0, arr.length - 1);
 	}
 
-	public static void swap(int[] arr, int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
+	public static void sortProcess(int[] arr, int L, int R) {
+		if (L == R) {
+			return;
+		}
+		int mid = (L + R) / 2; 					// L和R中点的位置
+		sortProcess(arr, L, mid);				// T(N/2)
+		sortProcess(arr, mid + 1, R);			// T(N/2)
+		merge(arr, L, mid, R);					// O(N)
+		// T(N) = 2*T(N/2) + O(N) => T(N) = N ^ d * logN = N*logN
+	}
+
+	public static void merge(int[] arr, int L, int mid, int R) {
+		// merge: sort the array(L to R)
+		int[] help = new int[R - L + 1];		// auxiliary array
+		int i = 0;
+		int p1 = L;
+		int p2 = mid + 1;
+		while (p1 <= mid && p2 <= R) {
+			// if the value of arr[p1] < arr[p2] give value arr[p1] to help[i]
+			// else give value arr[p2] to help[i]
+			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+		}
+		// p1\p2 must be and only one arrive the boundary
+		// give the remain elements of no-arrive boundary's one(p1 or p2) to help 
+		while (p1 <= mid) {
+			help[i++] = arr[p1++];
+		}
+		while (p2 <= R) {
+			help[i++] = arr[p2++];
+		}
+		for (i = 0; i < help.length; i++) {
+			// give elements of help to arr
+			arr[L + i] = help[i];
+		}
 	}
 	
 	// for test
@@ -95,7 +119,7 @@ public class BubbleSort {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			bubbleSort(arr1);
+			mergeSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
@@ -104,10 +128,11 @@ public class BubbleSort {
 		}
 		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 		
-		// to generate a array and bubbleSort it
+		// to generate a array and sort it
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		bubbleSort(arr);
+		mergeSort(arr);
 		printArray(arr);
 	}
+
 }

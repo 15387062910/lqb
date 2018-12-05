@@ -1,18 +1,18 @@
-package algorithm;
+package algorithm_sort;
 
 import java.util.Arrays;
 
-public class SelectionSort {
-	public static void selectionSort(int[] arr) {
+public class BubbleSort {
+	public static void bubbleSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int i = 0; i < arr.length - 1; i++) {
-			int minIndex = i;
-			for (int j = i + 1; j < arr.length; j++) {
-				minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+		for (int end = arr.length - 1; end >= 0; end--) {
+			for (int i = 0; i < end; i++) {
+				if (arr[i] > arr[i + 1]) {
+					swap(arr, i, i + 1);
+				}
 			}
-			swap(arr, i, minIndex);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class SelectionSort {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			selectionSort(arr1);
+			bubbleSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
@@ -104,10 +104,10 @@ public class SelectionSort {
 		}
 		System.out.println(succeed ? "Nice!" : "Fucking fucked!");
 		
-		// to generate a array and sort it
+		// to generate a array and bubbleSort it
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		selectionSort(arr);
+		bubbleSort(arr);
 		printArray(arr);
 	}
 }

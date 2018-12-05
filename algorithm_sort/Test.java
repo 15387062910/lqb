@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm_sort;
 
 public class Test {
 	

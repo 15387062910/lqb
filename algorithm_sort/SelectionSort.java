@@ -1,16 +1,18 @@
-package algorithm;
+package algorithm_sort;
 
 import java.util.Arrays;
 
-public class InsertionSort {
-	public static void insertionSort(int[] arr) {
+public class SelectionSort {
+	public static void selectionSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
 		}
-		for (int i = 1; i < arr.length; i++) {
-			for (int j = i - 1; j >= 0 && arr[j] > arr[j + 1]; j--) {
-				swap(arr, j, j+1);
+		for (int i = 0; i < arr.length - 1; i++) {
+			int minIndex = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				minIndex = arr[j] < arr[minIndex] ? j : minIndex;
 			}
+			swap(arr, i, minIndex);
 		}
 	}
 
@@ -93,7 +95,7 @@ public class InsertionSort {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			insertionSort(arr1);
+			selectionSort(arr1);
 			comparator(arr2);
 			if (!isEqual(arr1, arr2)) {
 				succeed = false;
@@ -105,7 +107,7 @@ public class InsertionSort {
 		// to generate a array and sort it
 		int[] arr = generateRandomArray(maxSize, maxValue);
 		printArray(arr);
-		insertionSort(arr);
+		selectionSort(arr);
 		printArray(arr);
 	}
 }

@@ -1,7 +1,8 @@
-package algorithm;
+package algorithm_sort;
 
 import java.util.Arrays;
 
+// 随机快速排序
 public class QuickSort {
 	public static void swap(int[] arr, int i, int j) {
 		// swap two elements of array
