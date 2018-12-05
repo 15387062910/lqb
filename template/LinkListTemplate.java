@@ -1,6 +1,5 @@
 package template;
 
-
 // 链表相关模板
 public class LinkListTemplate {
 	public static class Node {
@@ -49,7 +48,51 @@ public class LinkListTemplate {
 		}
 		System.out.println();
 	}
-
+	
+	public static Node reverseList(Node head) {
+		// 反转单向链表
+		Node pre = null;
+		Node next = null;
+		while (head != null) {
+			next = head.next;
+			head.next = pre;
+			pre = head;
+			head = next;
+		}
+		return pre;
+	}
+			
+	public static DoubleNode reverseList(DoubleNode head) {
+		// 反转双向链表
+		DoubleNode pre = null;
+		DoubleNode next = null;
+		while (head != null) {
+			next = head.next;
+			head.next = pre;
+			head.last = next;
+			pre = head;
+			head = next;
+		}
+		return pre;
+	}
+	
+	public static void printCommonPart(Node head1, Node head2) {
+		// 打印两个有序链表的公共部分
+		System.out.print("Common Part: ");
+		while (head1 != null && head2 != null) {
+			if (head1.value < head2.value) {
+				head1 = head1.next;
+			} else if (head1.value > head2.value) {
+				head2 = head2.next;
+			} else {
+				System.out.print(head1.value + " ");
+				head1 = head1.next;
+				head2 = head2.next;
+			}
+		}
+		System.out.println();
+	}
+	
 	public static int getLinkListLength(Node head){
 		// get the length of linklist
 		int length = 0;
@@ -89,6 +132,38 @@ public class LinkListTemplate {
 			n = n.next;
 		}
 		return head;
+	}
+	
+	// 按顺序合并两个链表(每个都可能为null)
+	public static Node mergeLinkList(Node head1, Node head2) {
+		if (head1 == null && head2 == null) {
+			return null;
+		} else if (head1 == null) {
+			return head2;
+		} else if (head2 == null) {
+			return head1;
+		} else {
+			Node head = head1;
+			Node tail = head;
+			Node tail_a = head1.next;
+			while(tail_a != null){
+				tail.next = tail_a;
+				tail = tail_a;
+				tail_a = tail_a.next;
+			}
+			Node tail_b = head2;
+			while(tail_b != null){
+				tail.next = tail_b;
+				tail = tail_b;
+				tail_b = tail_b.next;
+			}
+			
+			return head;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 
 	
