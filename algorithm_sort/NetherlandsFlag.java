@@ -40,7 +40,7 @@ public class NetherlandsFlag {
 				cur++;
 			}
 		}
-
+	
 		// 返回的是等于区域的左边界和右边界
 		if(less+1>more-1){
 			// 表示不存在等于区域
