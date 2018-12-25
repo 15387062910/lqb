@@ -2,6 +2,7 @@ package algorithm_stackAndQueue;
 
 // 用数组实现基本的栈和队列 并在异常时抛出提示信息
 public class Array_To_Stack_Queue {
+	// 数组实现栈
 	public static class ArrayStack {
 		private Integer[] arr;
 		private Integer index;
@@ -41,6 +42,7 @@ public class Array_To_Stack_Queue {
 		
 	}
 	
+	// 数组实现队列
 	public static class ArrayQueue{
 		private Integer[] arr;
 		private Integer size;
@@ -87,10 +89,6 @@ public class Array_To_Stack_Queue {
 			start = start == arr.length - 1 ? 0 : start + 1;
 			return arr[tmp];
 		}
-		
-	}
-	
-	public static void main(String[] args) {
 		
 	}
 	
