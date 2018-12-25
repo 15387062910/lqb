@@ -1,34 +1,29 @@
 package lqb_beikao;
 
-// ÂòÂô¹ÉÆ±µÄ×î¼ÑÊ±»ú
-// ¸ø¶¨Ò»¸öÊý×é£¬ËüµÄµÚ i ¸öÔªËØÊÇÒ»Ö§¸ø¶¨¹ÉÆ±µÚ i ÌìµÄ¼Û¸ñ¡£
-// Èç¹ûÄã×î¶àÖ»ÔÊÐíÍê³ÉÒ»±Ê½»Ò×£¨¼´ÂòÈëºÍÂô³öÒ»Ö§¹ÉÆ±£©£¬Éè¼ÆÒ»¸öËã·¨À´¼ÆËãÄãËùÄÜ»ñÈ¡µÄ×î´óÀûÈó¡£
-// ×¢ÒâÄã²»ÄÜÔÚÂòÈë¹ÉÆ±Ç°Âô³ö¹ÉÆ±¡£
-
-// Ê¾Àý 1:
-// ÊäÈë: [7,1,5,3,6,4]  Êä³ö: 5
-// ½âÊÍ: ÔÚµÚ 2 Ìì£¨¹ÉÆ±¼Û¸ñ = 1£©µÄÊ±ºòÂòÈë£¬ÔÚµÚ 5 Ìì£¨¹ÉÆ±¼Û¸ñ = 6£©µÄÊ±ºòÂô³ö£¬×î´óÀûÈó = 6-1 = 5 ¡£
-//    ×¢ÒâÀûÈó²»ÄÜÊÇ 7-1 = 6, ÒòÎªÂô³ö¼Û¸ñÐèÒª´óÓÚÂòÈë¼Û¸ñ¡£
-     
-// Ê¾Àý 2:
-// ÊäÈë: [7,6,4,3,1] 
-// Êä³ö: 0
-// ½âÊÍ: ÔÚÕâÖÖÇé¿öÏÂ, Ã»ÓÐ½»Ò×Íê³É, ËùÒÔ×î´óÀûÈóÎª 0¡£
+//ä¹°å–è‚¡ç¥¨çš„æœ€ä½³æ—¶æœº
+//ç»™å®šä¸€ä¸ªæ•°ç»„ï¼Œå®ƒçš„ç¬¬ i ä¸ªå…ƒç´ æ˜¯ä¸€æ”¯ç»™å®šè‚¡ç¥¨ç¬¬ i å¤©çš„ä»·æ ¼ã€‚
+//å¦‚æžœä½ æœ€å¤šåªå…è®¸å®Œæˆä¸€ç¬”äº¤æ˜“ï¼ˆå³ä¹°å…¥å’Œå–å‡ºä¸€æ”¯è‚¡ç¥¨ï¼‰ï¼Œè®¾è®¡ä¸€ä¸ªç®—æ³•æ¥è®¡ç®—ä½ æ‰€èƒ½èŽ·å–çš„æœ€å¤§åˆ©æ¶¦ã€‚
+//æ³¨æ„ä½ ä¸èƒ½åœ¨ä¹°å…¥è‚¡ç¥¨å‰å–å‡ºè‚¡ç¥¨ã€‚
+//
+//ç¤ºä¾‹ 1:
+//è¾“å…¥: [7,1,5,3,6,4]
+//è¾“å‡º: 5
+//è§£é‡Š: åœ¨ç¬¬ 2 å¤©ï¼ˆè‚¡ç¥¨ä»·æ ¼ = 1ï¼‰çš„æ—¶å€™ä¹°å…¥ï¼Œåœ¨ç¬¬ 5 å¤©ï¼ˆè‚¡ç¥¨ä»·æ ¼ = 6ï¼‰çš„æ—¶å€™å–å‡ºï¼Œæœ€å¤§åˆ©æ¶¦ = 6-1 = 5 ã€‚
+//     æ³¨æ„åˆ©æ¶¦ä¸èƒ½æ˜¯ 7-1 = 6, å› ä¸ºå–å‡ºä»·æ ¼éœ€è¦å¤§äºŽä¹°å…¥ä»·æ ¼ã€‚
+//     
+//ç¤ºä¾‹ 2:
+//è¾“å…¥: [7,6,4,3,1]
+//è¾“å‡º: 0
+//è§£é‡Š: åœ¨è¿™ç§æƒ…å†µä¸‹, æ²¡æœ‰äº¤æ˜“å®Œæˆ, æ‰€ä»¥æœ€å¤§åˆ©æ¶¦ä¸º 0ã€‚
 public class t17 {
-	private static int f(int arr[]){
+	private static int f(int prices[]){
 		int res = 0;
-		for(int i=0; i<arr.length-1; i++){
-			for(int j=i+1; j<arr.length; j++){
-				// iÊÇµÚÒ»Î»Êý  jÊÇµÚ¶þÎ»Êý
-				int temp = arr[j] - arr[i];
-				if(temp>res){
-					res = temp;
-				}
-			}
+		int buy = Integer.MAX_VALUE;
+		for(int i=0; i<prices.length; i++){
+			buy = Math.min(buy, prices[i]);			// ä¹‹å‰æœ€ä½Žä»·æ ¼ä¹°å…¥
+			res = Math.max(res, prices[i]-buy);		// æœ€é«˜å·®å–å‡º
 		}
-		if(res<0){
-			res = 0;
-		}
+		
 		return res;
 	}
 	
